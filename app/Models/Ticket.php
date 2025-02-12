@@ -9,6 +9,8 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    protected $table = 'tickets';
+
     protected $fillable = [
         'usersId',
         'state',
@@ -16,12 +18,6 @@ class Ticket extends Model
         'modifiedDate',
         'request',
     ];
-
-    // $table->foreignId('usersId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
-    //         $table->enum('state', ['nuovo', 'in lavorazione', 'chiuso'])->default('nuovo');
-    //         $table->foreignId('revisorId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
-    //         $table->timestamp('modifiedDate')->useCurrent()->useCurrentOnUpdate();
-    //         $table->text('request');
 
     public function users()
     {

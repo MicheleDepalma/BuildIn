@@ -9,6 +9,8 @@ class Ad extends Model
 {
     use HasFactory;
 
+    protected $table = 'ads';
+
     protected $fillable = [
         'categories',
         'subCategories',
@@ -18,10 +20,10 @@ class Ad extends Model
         'squareMeters',
         'description',
         'title',
-        'image',
+        'imageId',
         'serviceType',
         'buildingCategories',
-        'local',
+        'localCategories',
         'address',
         'cap',
         'usersId',
@@ -31,13 +33,17 @@ class Ad extends Model
     const LAVORI_PRIVATI = 'Lavori Privati';
     const APPALTI = 'Appalti';
     const SUBAPPALTI = 'Subappalti';
-    const CHIAVI_IN_MANO = 'Chiavi in Mano';
+    const CHIAVI_IN_MANO = 'Chiavi in Mano'; 
     
     //COSTANTI SUBCATEGORY
     const MATERIALI = 'Materiali';
     const EDILIZIA = 'Edilizia';
     const SERVIZI_TECNICI = 'Servizi Tecnici';
     const TRASLOCHI = 'Traslochi';
+
+    //COSTANTI SERVICE TYPE
+    const RISTRUTTURAZIONE = 'Ristrutturazione';
+    const MANUTENZIONE = 'Manutenzione';
 
     //COSTANTI BUILDING CATEGORIES
     const RESIDENZIALE = 'Residenziale';
@@ -53,7 +59,6 @@ class Ad extends Model
     const QUADRILOCALE = 'Quadrilocale';
     const VILLA = 'Villa';
     const PALAZZINA = 'Palazzina';
-
     
     public const CATEGORIES = [
         self::LAVORI_PRIVATI,
@@ -68,6 +73,11 @@ class Ad extends Model
         self::SERVIZI_TECNICI,
         self::TRASLOCHI
     ];
+    public const SERVICE_TYPE = [
+        self::RISTRUTTURAZIONE,
+        self::MANUTENZIONE
+    ];
+    
     public const BUILDING_CATEGORIES = [
         self::RESIDENZIALE,
         self::CAPANNONE,

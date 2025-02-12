@@ -9,6 +9,8 @@ class Contract extends Model
 {
     use HasFactory;
 
+    protected $table = 'contracts';
+
     protected $fillable = [
         'adsId',
         'state',

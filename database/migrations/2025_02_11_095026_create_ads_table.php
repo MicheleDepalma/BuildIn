@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ads', function (Blueprint $table) {
+        Schema::create('ads', function (Blueprint $table) { 
             $table->id();
             $table->enum('categories', Ad::CATEGORIES)->nullable();
             $table->enum('subCategories', Ad::SUBCATEGORIES)->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('title');
             $table->unsignedBigInteger('imageId')->nullable();
-            $table->string('serviceType')->nullable();
+            $table->enum('serviceType', Ad::SERVICE_TYPE)->nullable();
             $table->enum('buildingCategories', Ad::BUILDING_CATEGORIES)->nullable();
             $table->enum('localCategories', Ad::LOCAL_CATEGORIES)->nullable();
             $table->string('address')->nullable();
