@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usersId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
             $table->enum('state', ['nuovo', 'in lavorazione', 'chiuso'])->default('nuovo');
-            $table->foreignId('revisorId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
-            $table->timestamp('modifiedDate')->useCurrent()->useCurrentOnUpdate();
+            $table->foreignId('revisor_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->timestamp('modified_date')->useCurrent()->useCurrentOnUpdate();
             $table->text('request');
             $table->timestamps();
         });

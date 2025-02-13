@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('userId')->references('id')->on('users')->constrained()->onDelete('cascade');
-            $table->string('cardHolder');
-            $table->string('cardNumber');
-            $table->date('cardExpiration');
+            $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
+            $table->string('card_holder');
+            $table->string('card_number');
+            $table->date('card_expiration');
             $table->string('cvv');
             $table->timestamps();
         });

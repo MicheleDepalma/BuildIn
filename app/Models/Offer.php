@@ -13,25 +13,25 @@ class Offer extends Model
     protected $table = 'offers';
 
     protected $fillable = [
-        'adsId',
-        'usersId',
-        'recipientId',
+        'ad_id',
+        'user_id',
+        'recipient_id',
         'ammount',
-        'workStartDate',
-        'workEndDate',
+        'work_start_date',
+        'work_end_date',
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'usersId');
+        return $this->belongsTo(User::class);
     }
 
-    public function usersRecipient()
+    public function userRecipient()
     {
-        return $this->belongsTo(User::class, 'recipientId');
+        return $this->belongsTo(User::class, 'recipient_id');
     }
 
-    public function ads() 
+    public function ad() 
     {
         return $this->belongsTo(Ad::class);
     }

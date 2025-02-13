@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('adsId')->references('id')->on('ads')->constrained()->onDelete('cascade');
+            $table->foreignId('ad_id')->references('id')->on('ads')->constrained()->onDelete('cascade');
             $table->enum('state', ['Confermato', 'Non Confermato'])->default('Non Confermato');
-            $table->date('workStart');
-            $table->date('workEnd');
+            $table->date('work_start');
+            $table->date('work_end');
             $table->decimal('ammount', 10,2);
-            $table->enum('statePayment', ['Pagato', 'Non Pagato'])->default('Non Pagato');
-            $table->unsignedBigInteger('attachmentsId')->nullable();
-            $table->foreignId('usersId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
-            $table->foreignId('recipientId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->enum('state_payment', ['Pagato', 'Non Pagato'])->default('Non Pagato');
+            $table->unsignedBigInteger('attachment_id')->nullable();
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->foreignId('recipient_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -9,26 +9,26 @@ class UserInformation extends Model
 {
     use HasFactory;
 
-    protected $table = 'usersInformations';
+    protected $table = 'userInformations';
 
     protected $fillable = [
-        'userId',
+        'user_id',
         'name',
         'surname',
-        'nameCompany',
-        'pIva',
+        'name_company',
+        'p_iva',
         'address',
         'city',
         'cap',
         'pec',
         'sdi',
-        'siteLink',
+        'site_link',
         'state',
         'currency',
-        'mobileNumber',        
+        'mobile_number',        
     ];
 
-    public function users() 
+    public function user() 
     {
         return $this->belongsTo(User::class);
     }

@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usersInformations', function (Blueprint $table) {
+        Schema::create('userInformations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('userId')->references('id')->on('users')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('surname')->nullable();
-            $table->string('nameCompany')->nullable();
-            $table->string('pIva')->unique()->nullable();
+            $table->string('name_company')->nullable();
+            $table->string('p_iva')->unique()->nullable();
             $table->string('address');
             $table->string('city');
             $table->string('cap');
             $table->string('pec')->nullable();
             $table->string('sdi')->nullable();
-            $table->string('siteLink')->nullable();
+            $table->string('site_link')->nullable();
             $table->string('state')->nullable();
             $table->string('currency')->nullable();
-            $table->string('mobileNumber');
+            $table->string('mobile_number');
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usersInformations');
+        Schema::dropIfExists('userInformations');
     }
 };

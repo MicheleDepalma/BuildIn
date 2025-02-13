@@ -12,20 +12,20 @@ class Review extends Model
     protected $table = 'reviews';
 
     protected $fillable = [
-        'usersId',
-        'recipientId',
+        'user_id',
+        'recipient_id',
         'vote',
         'description',
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'usersId');
+        return $this->belongsTo(User::class);
     }
 
-    public function usersRecipient()
+    public function userRecipient()
     {
-        return $this->belongsTo(User::class, 'recipientId');
+        return $this->belongsTo(User::class, 'recipient_id');
     }
 
 }

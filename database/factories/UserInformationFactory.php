@@ -19,20 +19,20 @@ class UserInformationFactory extends Factory
     public function definition(): array
     {
         return [
-            'userId' => \App\Models\User::inRandomOrder()->first()->id,
+            'user_id' => null,
             'name' => $this->faker->firstName(),
             'surname' => $this->faker->lastName(),
-            'nameCompany' => $this->faker->company(),
-            'pIva' => $this->faker->unique()->numerify('IT###########'),
+            'name_company' => $this->faker->company(),
+            'p_iva' => $this->faker->unique()->numerify('IT###########'),
             'address' => $this->faker->streetAddress(),
             'city' => $this->faker->city(),
             'cap' => $this->faker->postcode(),
             'pec' => $this->faker->unique()->safeEmail(),
             'sdi' => $this->faker->bothify('??######'),
-            'siteLink' => $this->faker->url(),
+            'site_link' => $this->faker->url(),
             'state' => $this->faker->country(),
             'currency' => $this->faker->currencyCode(),
-            'mobileNumber' => $this->faker->phoneNumber(),
+            'mobile_number' => $this->faker->phoneNumber(),
         ];
     }
 }

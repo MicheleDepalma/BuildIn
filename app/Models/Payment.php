@@ -12,14 +12,14 @@ class Payment extends Model
     protected $table = 'payments'; 
 
     protected $fillable = [
-        'userId',
-        'cardHolder',
-        'cardNumber',
-        'cardExpiration',
+        'user_id',
+        'card_holder',
+        'card_number',
+        'card_expiration',
         'cvv',
     ];
 
-    public function users() 
+    public function user() 
     {
         return $this->belongsTo(User::class);
     }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ad>
@@ -18,23 +19,23 @@ class AdFactory extends Factory
     protected $model = \App\Models\Ad::class;
     public function definition(): array
     {
+        
         return [
+            'user_id' => User::where('id', '!=', 1)->inRandomOrder()->first()->id,
             'categories' => $this->faker->randomElement([ 'Lavori Privati', 'Appalti', 'Subappalti', 'Chiavi in Mano']),
-            'subCategories' => $this->faker->randomElement(['Materiali', 'Edilizia', 'Servizi Tecnici', 'Traslochi']),
+            'sub_categories' => $this->faker->randomElement(['Materiali', 'Edilizia', 'Servizi Tecnici', 'Traslochi']),
             'city' => $this->faker->city(),
-            'budgetMin' => $this->faker->randomFloat(null, 50, 10000),
-            'budgetMax' => $this->faker->randomFloat(null, 50, 10000),
-            'squareMeters' => $this->faker->randomFloat(null, 30, 200),
+            'budget_min' => $this->faker->randomFloat(null, 50, 10000),
+            'budget_max' => $this->faker->randomFloat(null, 50, 10000),
+            'square_meters' => $this->faker->randomFloat(null, 30, 200),
             'description' => $this->faker->paragraph(),
             'title' => $this->faker->sentence(),
-            //'imageId' => json_encode([$this->faker->imageUrl()]),
-            'serviceType' => $this->faker->randomElement(['Ristrutturazione', 'Manutenzione']),
-            'buildingCategories' => $this->faker->randomElement(['Residenziale', 'Capannone', 'Negozi - Locali commerciali', 'Palazzi - Edifici','Ufficio']),
-            'localCategories' => $this->faker->randomElement(['Monolocale', 'Bilocale', 'Trilocale', 'Quadrilocale', 'Villa', 'Palazzina']),
+            //'image_id' => json_encode([$this->faker->imageUrl()]),
+            'service_type' => $this->faker->randomElement(['Ristrutturazione', 'Manutenzione']),
+            'building_categories' => $this->faker->randomElement(['Residenziale', 'Capannone', 'Negozi - Locali commerciali', 'Palazzi - Edifici','Ufficio']),
+            'local_categories' => $this->faker->randomElement(['Monolocale', 'Bilocale', 'Trilocale', 'Quadrilocale', 'Villa', 'Palazzina']),
             'address' => $this->faker->streetAddress(),
             'cap' => $this->faker->postcode(),
-            'usersId' => \App\Models\User::inRandomOrder()->first()->id,
-            'recipientId' => \App\Models\User::inRandomOrder()->first()->id,
         ];
     }  
 }

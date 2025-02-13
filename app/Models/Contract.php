@@ -12,28 +12,28 @@ class Contract extends Model
     protected $table = 'contracts';
 
     protected $fillable = [
-        'adsId',
+        'ad_id',
         'state',
-        'workStart',
-        'workEnd',
+        'work_start',
+        'work_end',
         'ammount',
-        'statePayment',
-        'attachmentsId',
-        'usersId',
-        'recipientId',
+        'state_payment',
+        'attachment_id',
+        'user_id',
+        'recipient_id',
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'usersId');
+        return $this->belongsTo(User::class);
     }
 
-    public function usersRecipient()
+    public function userRecipient()
     {
-        return $this->belongsTo(User::class, 'recipientId');
+        return $this->belongsTo(User::class, 'recipient_id');
     }
 
-    public function ads() 
+    public function ad() 
     {
         return $this->belongsTo(Ad::class);
     }

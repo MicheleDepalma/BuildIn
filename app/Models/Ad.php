@@ -12,22 +12,21 @@ class Ad extends Model
     protected $table = 'ads';
 
     protected $fillable = [
+        'user_id',
         'categories',
-        'subCategories',
+        'sub_categories',
         'city',
-        'budgetMin',
-        'budgetMax',
-        'squareMeters',
+        'budget_min',
+        'budget_max',
+        'square_meters',
         'description',
         'title',
-        'imageId',
-        'serviceType',
-        'buildingCategories',
-        'localCategories',
+        'image_id',
+        'service_iype',
+        'building_categories',
+        'local_categories',
         'address',
         'cap',
-        'usersId',
-        'recipientId',
     ];
     //COSTANTI CATEGORY
     const LAVORI_PRIVATI = 'Lavori Privati';
@@ -99,23 +98,19 @@ class Ad extends Model
         'city' => 'array',
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'usersId');
+        return $this->belongsTo(User::class);
     }
 
-    public function usersRecipient()
-    {
-        return $this->belongsTo(User::class, 'recipientId');
-    }
     
     public function offers()
     {
         return $this->hasMany(Offer::class);
     }
 
-    public function contracts()
+    public function contract()
     {
-        return $this->belongsTo(Contract::class);
+        return $this->hasOne(Contract::class);
     }
 }

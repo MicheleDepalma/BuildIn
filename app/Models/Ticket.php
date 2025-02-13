@@ -12,20 +12,20 @@ class Ticket extends Model
     protected $table = 'tickets';
 
     protected $fillable = [
-        'usersId',
+        'user_id',
         'state',
-        'revisorId',
-        'modifiedDate',
+        'revisor_id',
+        'modified_date',
         'request',
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
     public function revisor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'revisor_id');
     }
 }

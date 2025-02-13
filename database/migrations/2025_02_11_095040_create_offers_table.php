@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('adsId')->references('id')->on('ads')->constrained()->onDelete('cascade');
-            $table->foreignId('usersId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
-            $table->foreignId('recipientId')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->foreignId('ad_id')->references('id')->on('ads')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
+            $table->foreignId('recipient_id')->nullable()->references('id')->on('users')->constrained('users')->onDelete('cascade');
             $table->decimal('ammount', 10,2);
-            $table->date('workStartDate');
-            $table->date('workEndDate');
+            $table->date('work_start_date');
+            $table->date('work_end_date');
             $table->timestamps();
         });
     }

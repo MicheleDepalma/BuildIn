@@ -29,6 +29,7 @@ class User extends Authenticatable
     const ROLE_PRIVATO = 'privato';
     const ROLE_AZIENDA = 'azienda';
     const ROLE_ENTE_PUBBLICO = 'ente pubblico';
+    const SUBSCRIPTIONS_SUPER_ADMIN = 'superAdmin';
     const SUBSCRIPTIONS_BASIC = 'Basic';
     const SUBSCRIPTIONS_MEDIUM = 'medium';
     const SUBSCRIPTIONS_PREMIUM = 'premium';
@@ -42,7 +43,7 @@ class User extends Authenticatable
     ];
 
 public const SUBSCRIPTIONS = [
-     self::ROLE_ENTE_PUBBLICO,
+     self::SUBSCRIPTIONS_SUPER_ADMIN,
      self::SUBSCRIPTIONS_BASIC,
      self::SUBSCRIPTIONS_MEDIUM,
      self::SUBSCRIPTIONS_PREMIUM
@@ -51,6 +52,11 @@ public const SUBSCRIPTIONS = [
     public function payment()
     {
         return $this->hasOne(Payment::class);
+    }
+
+    public function userInformation()
+    {
+        return $this->hasOne(UserInformation::class);
     }
 
     public function ads()
