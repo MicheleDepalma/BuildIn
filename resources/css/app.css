@@ -10,3 +10,8 @@
 @theme {
     --font-sans: Inter, sans-serif;
 }
+
+/* 
+[data-flux-menu-submenu] button {
+    @apply hover:text-[#514f8d];
+} */

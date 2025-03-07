@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="relative w-full h-screen bg-cover bg-center flex items-center justify-center" 
-         style="background-image: url('{{ asset('images/home-bg.jpg') }}');">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="text-center text-white">
-                <h1 class="text-5xl font-bold">Cerca e offri servizi edili specifici</h1>
-                <p class="mt-4 text-lg">Trova il professionista giusto per il tuo progetto.</p>
-                <x-dropdown icon="arrow-down" position="bottom">
-                    <x-dropdown.item label="Settings" />
-                    <x-dropdown.item label="My Profile" />
-                    <x-dropdown placement="right">
-                        <x-slot name="trigger">
-                            <x-dropdown.item label="Logout" />
-                        </x-slot>
+    <div class="relative w-screen h-[645px] flex items-center">
+        <img src="{{ asset('home-bg.jpeg') }}" class="absolute w-full h-full object-cover" alt="Background">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex">
+            <div class="text-start text-white pl-[352px] pt-[360px] leading-tight flex flex-col">
+                <flux:icon.icona-servizi class="text-red-500"/>
+                <h1 class="text-[44px] font-extrabold tracking-tight leading-none">Cerca e offri</h1>
+                <h2 class="text-[40px] font-normal leading-none">servizi edili specifici</h2>
+                <div class="mt-6 flex justify-center">
+                    <div class="h-[98px] bg-white shadow-lg rounded-lg p-4 flex items-center space-x-4 mx-auto">
+                        <div class="text-[#a11916] text-sm font-bold uppercase">RICERCA UN SERVIZIO SPECIFICO</div>
+                        <flux:dropdown
+                            icon="icona-servizi">
+                            Tipologie servizio
+                        </flux:dropdown>
+
                         
-                        <x-dropdown.item label="Esci" />
-                        <x-dropdown.item label="Entra" />
-                    </x-dropdown>
-                </x-dropdown>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

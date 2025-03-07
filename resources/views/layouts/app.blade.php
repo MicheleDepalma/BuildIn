@@ -17,9 +17,8 @@
         @wireUiScripts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
-        --    @fluxAppearance
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased overflow-x-hidden">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
@@ -27,7 +26,7 @@
             {{-- @include('layouts.partials.header') --}}
 
             <!-- Page Content -->
-            <main class="container mx-auto py-8">
+            <main class="container py-8">
                 @yield('content')
             </main>
 
